@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Chatbot Erzsébet Fürdő Magánklinika</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+		<style>
+			:root {
+				--primary: #0079bf;
+				--secondary: #ffffff;
+				--accent: #61bd4f;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				min-height: 100vh;
+				margin: 0;
+				font-family: 'Inter', sans-serif;
+				background: linear-gradient(135deg, var(--primary), #055a8c);
+				color: var(--secondary);
+			}
+
+			.container {
+				text-align: center;
+				padding: 2rem;
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 16px;
+				box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				transition: transform 0.3s ease;
+			}
+
+			.container:hover {
+				transform: translateY(-5px);
+			}
+
+			h1 {
+				font-size: 3.5rem;
+				margin: 0 0 1rem 0;
+				letter-spacing: -0.5px;
+			}
+
+			.subtitle {
+				font-size: 1.25rem;
+				opacity: 0.9;
+				margin-bottom: 2rem;
+			}
+
+			.button {
+				display: inline-block;
+				padding: 12px 24px;
+				background-color: var(--accent);
+				color: white;
+				text-decoration: none;
+				border-radius: 8px;
+				font-weight: 600;
+				transition: all 0.2s ease;
+			}
+
+			.button:hover {
+				background-color: #51a842;
+				transform: scale(1.05);
+			}
+
+			.button:active {
+				transform: scale(0.95);
+			}
+
+			.emoji {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+				animation: wave 2s infinite;
+				display: inline-block;
+			}
+
+			@keyframes wave {
+				0%,
+				100% {
+					transform: rotate(0deg);
+				}
+				25% {
+					transform: rotate(-20deg);
+				}
+				75% {
+					transform: rotate(20deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="emoji">👋</div>
+			<h1>Szia!</h1>
+			<p class="subtitle">Ez az Erzsébet Fürdő chatbot tesztelő felülete</p>
+		</div>
+		<div id="voiceflow-chat"></div>
+
+		<script type="text/javascript">
+			(function (d, t) {
+				var v = d.createElement(t),
+					s = d.getElementsByTagName(t)[0];
+				v.onload = function () {
+					window.voiceflow.chat.load({
+						verify: { projectID: '67fe680f9a4194414fad5385' },
+						url: 'https://general-runtime.voiceflow.com',
+						versionID: 'production',
+						voice: {
+							url: 'https://runtime-api.voiceflow.com',
+						},
+					});
+				};
+				v.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
+				v.type = 'text/javascript';
+				s.parentNode.insertBefore(v, s);
+			})(document, 'script');
+		</script>
+	</body>
+</html>
