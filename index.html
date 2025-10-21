@@ -117,8 +117,11 @@
 					voice: {
 					  url: "https://runtime-api.voiceflow.com"
 					}
-				  });
-				}
+      });
+        setTimeout(function() {
+          window.voiceflow.chat.open();
+        }, 3000); // 3000 ms = 3 másodperc
+    }
 				v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
 			})(document, 'script');
 		  </script>
